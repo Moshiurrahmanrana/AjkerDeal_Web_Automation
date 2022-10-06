@@ -6,22 +6,23 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class SearchPage {
+    @FindBy(xpath = "//a[contains(text(),'ENG')]")
+    public WebElement translateEng;
     @FindBy(id = "txtName")
     public WebElement searchBox;
-    @FindBy(xpath = "//li[@id='ui-id-20']//a")
-    public WebElement selectProduct;
 
-    @FindBy(xpath = "//h1[@class='category-total-count-text']")
-    public WebElement productFound;
+    @FindBy(xpath = "//button[@type='button']")
+    public WebElement searchButton;
     WebDriver driver;
+
     public SearchPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public String findProducts(){
+    public void findProducts() {
+        translateEng.click();
         searchBox.sendKeys("pants");
-        selectProduct.click();
-        return productFound.getText();
+        searchButton.click();
     }
 }

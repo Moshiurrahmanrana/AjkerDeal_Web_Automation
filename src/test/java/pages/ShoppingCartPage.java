@@ -27,7 +27,14 @@ public class ShoppingCartPage {
         driver.findElement(By.cssSelector("img[alt='X']")).click();
         driver.findElement(By.cssSelector("img[src='https://static.ajkerdeal.com/images/desktop-home/cart.svg']")).click();
         Thread.sleep(4000);
-        boolean a = driver.findElement(By.cssSelector("ul[class='shopping-list'] li")).isDisplayed();
+    }
+    public boolean productFound(){
+        if (driver.findElement(By.cssSelector("ul[class='shopping-list'] li")).isDisplayed()){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }

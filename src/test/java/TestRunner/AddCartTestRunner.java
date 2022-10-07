@@ -1,6 +1,8 @@
 package TestRunner;
 
 import Setup.Setup;
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ShoppingCartPage;
 
@@ -12,5 +14,7 @@ public class AddCartTestRunner extends Setup {
         driver.get("https://www.ajkerdeal.com/");
         shoppingCartPage = new ShoppingCartPage(driver);
         shoppingCartPage.addToCart();
+        boolean a = driver.findElement(By.cssSelector("ul[class='shopping-list'] li")).isDisplayed();
+        Assert.assertTrue(a);
     }
 }

@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,9 +21,11 @@ public class SearchPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void findProducts() {
+    public String findProducts() {
         translateEng.click();
         searchBox.sendKeys("pants");
         searchButton.click();
+        String searchResult = driver.findElement(By.className("total-found-product-container")).getText();
+        return searchResult;
     }
 }

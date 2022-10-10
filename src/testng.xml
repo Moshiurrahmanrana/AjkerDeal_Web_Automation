@@ -1,0 +1,7 @@
+<suite thread-count="1" verbose="1" name="Web shopping Website">
+    <test name="test">
+        <classes>
+            <class name="TestRunner.LoginTestRunner"/>
+        </classes>
+    </test>
+</suite>
